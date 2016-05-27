@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+<ion-view style="" id="page5" title="Fechar Corrida">
+    <ion-content class="has-header" padding="true" ng-controller="fecharCorridaCtrl">
+        <div style="margin: 0px; line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
+          <div class="image item-image">
+            <img ng-src="{{imageCamera}}" ng-model="imagem" />
+          </div>
+        </div>
+        <button ng-click="fechaCorrida()" class="button button-positive  button-block" id="fecharCorrida-button6">Tirar Foto</button>
+        <form style="" class="list">
+            <label style="" class="item item-input">
+                <input ng-model="km" placeholder="Informar KM" type="text" />
+            </label>
+        </form>
+        <button ng-click="fechar()" class="button button-assertive  button-block" id="fecharCorrida-button5" ui-sref="corrida">Fechar</button>
+    </ion-content>
+</ion-view>

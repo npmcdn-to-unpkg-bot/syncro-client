@@ -1,0 +1,31 @@
+
+
+
+
+<ion-view style="" id="page4" title="Abrir Corrida">
+    <ion-content class="has-header" padding="true">
+        <div class="card" style="margin: 0px; line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
+          <div class="image item-image">
+            <img ng-src="{{imageCamera}}" ng-model="imagem" />
+          </div>
+        </div>
+        <button  ng-click="abrirCorrida()" class="button button-positive  button-block" id="abrirCorrida-button3">Tirar Foto</button>
+        <form style="" class="list">
+
+            <label style="" class="item item-input">
+                <input ng-model="mileage" placeholder="Informar KM" type="text" />
+            </label>
+
+            <div style="width: 283px; height: 5px;" class="spacer"></div>
+
+                <span class="input-label">Placa - Modelo</span>
+                <label style="" class="item">
+                    <select class="item item-select" ng-model="car" ng-options="veiculo.Placa+' - '+veiculo.Modelo for veiculo in lista track by veiculo.IdVeiculo"></select>
+                </label>
+
+
+        </form>
+        <button ng-click="addCorrida()" class="button button-balanced  button-block" id="abrirCorrida-button4" ng-disabled="!km">Iniciar</button>
+    </ion-content>
+</ion-view>
+<!--|| !imageCamera-->
