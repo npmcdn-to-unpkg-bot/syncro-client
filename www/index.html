@@ -11,7 +11,9 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
@@ -38,17 +40,17 @@
 
     <script src="js/app.js"></script>
 
-    <!-- Controller -->
     <script src="js/services/services.js"></script>
     <script src="js/directives/directives.js"></script>
-    
+    <script src="js/routes/routes.js"></script>
+
+    <!-- Controllers -->
     <script src="js/controllers/loginCtrl.js"></script>
     <script src="js/controllers/corridaCtrl.js"></script>
     <script src="js/controllers/fecharCorridaCtrl.js"></script>
     <script src="js/controllers/abrirCorridaCtrl.js"></script>
     <!-- -->
 
-    <script src="js/routes/routes.js"></script>
 
 
       <!-- -->
@@ -58,7 +60,7 @@
     -->
 
   </head>
-  <body ng-csp="" ng-app="app" animation="slide-left-right-ios7" onload="atualizarDataHora();">
+  <body ng-csp="" ng-app="app" animation="slide-left-right-ios7"''>
   <div style="">
     <div style="">
         <ion-nav-bar class="bar-stable">

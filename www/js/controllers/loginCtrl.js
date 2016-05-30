@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-  .controller('loginCtrl', function($scope, userService, Scopes) {
+  .controller('loginCtrl', function($scope) {
 
     $scope.entrar = function () {
 

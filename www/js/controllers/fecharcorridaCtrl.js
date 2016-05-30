@@ -26,15 +26,4 @@ angular.module('app')
 
   };
 
-  //Codigo acima recupera imagem do sistema e o km informado
-
-  $scope.velocimetro = [
-    {km: ""}
-  ];
-
-
-  $scope.currentData = dateFilter(new Date(), " 'Data: 'dd/MM/yyyy 'Hora: 'hh:mm a");
-
-
-
 })
