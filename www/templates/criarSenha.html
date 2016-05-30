@@ -1,5 +1,4 @@
-
-<ion-view style="" id="page2" title="Login">
+<ion-view style="" id="page7" title="Login">
     <ion-content class="has-header" padding="true" >
         <form style="" class="list">
             <div>
@@ -8,14 +7,17 @@
 
             <div style="width: 286px; height: 40px;" class="spacer"></div>
             <ion-list style="">
+                <div>
+                  <p class="alerta">Por favor insira uma nova senha!</p>
+                </div>
                 <label style="" class="item item-input">
-                    <input placeholder="Usuário" type="text" ng-model="usuario" />
+                    <input placeholder="Nova Senha" type="text" ng-model="novaSenha" />
                 </label>
                 <div style="height: 5px;" class="spacer"></div>
 
             </ion-list>
 
-            <a ng-click="entrar()" class="button button-positive  button-block" ng-disabled="!usuario" style="color:#FFFFFF;" id="login-button2">Log in</a>
+            <a ng-click="criar()" class="button button-positive  button-block" ng-disabled="!novaSenha">Criar Senha</a>
         </form>
     </ion-content>
 </ion-view>

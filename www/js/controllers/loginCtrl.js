@@ -25,10 +25,7 @@
           }
           console.log(us);
       });
-      //}
-      //else {
-    //    alert('falha');
-    //  }
+
 
     }
 

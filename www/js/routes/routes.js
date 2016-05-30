@@ -34,6 +34,17 @@ angular.module('app')
     controller: 'fecharCorridaCtrl'
   })
 
+  .state('senha', {
+    url: '/page6',
+    templateUrl: 'templates/senha.html',
+    controller:   'senhaCtrl'
+  })
+  .state('criarSenha', {
+    url: '/page7',
+    templateUrl: 'templates/criarSenha.html',
+    controller: 'criarSenhaCtrl'
+  })
+
 $urlRouterProvider.otherwise('/page2')
 
 
