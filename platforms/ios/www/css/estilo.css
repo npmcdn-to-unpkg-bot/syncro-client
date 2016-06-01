@@ -1,0 +1,16 @@
+.alerta{
+
+  text-align: center;
+   color: #ff3333;
+   font-weight: bold;
+   opacity: 0.5;
+
+}
+.logo{
+  display: block;
+  margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 5px;
+   height: 52px;
+   width: 128px;
+}

@@ -9,14 +9,19 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
 <!-- <script src="cordova.js"></script> -->
-    <script src="js/ng-cordova.min.js"></script>
+    <script src="js/plugins/ng-cordova.min.js"></script>
+    <script src="js/configs/constants.config.js"></script>
+    <script src="js/configs/cors.config.js"></script>
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -33,37 +38,34 @@
         padding-top:0px !important;
       }
     </style>
-<!-- aquivos responsáveis pela conexâo do banco MongoDB-->
-    <script src="../src/configs/constants.config.js"></script>
-    <script src="../src/configs/database.config.js"></script>
-    <script src="../src/configs/routes.config.js"></script>
-    <script src="../src/configs/schemas.config.js"></script>
-  <!-- pasta config-->
-    <script src="../src/controllers/run.controller.js"></script>
-    <script src="../src/controller/sessions.controller.js"></script>
-      <!-- pasta controller-->
-    <script src="../src/dao/run.dao.js"></script>
-      <!-- pasta dao-->
-    <script src="../src/schemas/run.schemas.js"></script>
-      <!-- pasta schemas-->
-    <script src="../src/index.js"></script>
-      <!-- pasta src-->
+
+      <!-- -->
+
+    <script src="js/app.js"></script>
+
+    <script src="js/services/services.js"></script>
+    <script src="js/directives/directives.js"></script>
+    <script src="js/routes/routes.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/loginCtrl.js"></script>
+    <script src="js/controllers/senhaCtrl.js"></script>
+    <script src="js/controllers/criarSenhaCtrl.js"></script>
+    <script src="js/controllers/corridaCtrl.js"></script>
+    <script src="js/controllers/fecharCorridaCtrl.js"></script>
+    <script src="js/controllers/abrirCorridaCtrl.js"></script>
+    <!-- -->
+
 
 
       <!-- -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/routes.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/directives.js"></script>
-      <!-- -->  
 
     <!-- Only required for Tab projects w/ pages in multiple tabs
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
 
   </head>
-  <body ng-csp="" ng-app="app" animation="slide-left-right-ios7" onload="atualizarDataHora();" class="platform-android platform-cordova platform-webview">
+  <body ng-csp="" ng-app="app" animation="slide-left-right-ios7" ''="" class="platform-android platform-cordova platform-webview">
   <div style="">
     <div style="">
         <ion-nav-bar class="bar-stable">

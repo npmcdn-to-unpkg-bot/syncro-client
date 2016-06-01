@@ -49,16 +49,17 @@
 
     $scope.addCorrida = function(){
         var deviceStartDate = new Date();
-
+        //console.log(deviceStartDate);
+        //console.log("teste - "+$scope.mileage);
         var data = {
           deviceStartDate: deviceStartDate,
           mileage: $scope.mileage,
           car: $scope.car.IdVeiculo,
           user: 1,
-          photo: "SUAIHDUAHDIDHUAUIDHAUDH",
+          photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
         }
+        console.log(data);
 
-        console.log(deviceStartDate);
 
         var request = {
           method: "POST",
@@ -79,5 +80,5 @@
 
 
   })
-  
+
 }());

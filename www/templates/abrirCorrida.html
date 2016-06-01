@@ -3,7 +3,7 @@
 
 
 <ion-view style="" id="page4" title="Abrir Corrida">
-    <ion-content class="has-header" padding="true">
+    <ion-content class="has-header" padding="true" ng-controller='abrirCorridaCtrl'>
         <div class="card" style="margin: 0px; line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
           <div class="image item-image">
             <img ng-src="{{imageCamera}}" ng-model="imagem" />
@@ -25,7 +25,7 @@
 
 
         </form>
-        <button ng-click="addCorrida()" class="button button-balanced  button-block" id="abrirCorrida-button4" ng-disabled="!km">Iniciar</button>
+        <button ng-click="addCorrida()" class="button button-balanced  button-block" id="abrirCorrida-button4" ng-disabled="">Iniciar</button>
     </ion-content>
 </ion-view>
-<!--|| !imageCamera-->
+<!--!km || !imageCamera-->
