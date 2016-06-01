@@ -37,26 +37,20 @@ angular.module('app')
 
 
 .factory('userServicePass', function($http) {
-console.log("Entrou no userServicepass");
  return {
-    putPassword: function(_cpf, _password){
+    putPassword: function(_id,_password){
 
       var parametros = {
-        cpf:_cpf,
+        id:_id,
         password:_password
       };
-        console.log(" até aqui apenas variaveis");
       var _url=  SERVICE_URL+"/user";
-        console.log("a partir daqui será feito o put");
-      return $http.put(_url, parametros).then(function(response){
+      return $http.put(_url,parametros).then(function(response){
               console.log("executou");
             return response;
             }, function(error){
               console.log("erro!");
             });
-              console.log("Ok");
-
-
      }
   }
 })

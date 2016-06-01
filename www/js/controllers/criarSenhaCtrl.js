@@ -4,9 +4,14 @@ angular.module('app')
 
         console.log("Clicado!");
 
-        var _cpf = Scopes.get('loginCtrl').usuario;
+        var _id = Scopes.get('loginCtrl').user.data.value._id;
         var _password = $scope.novaSenha;
-        userServicePass.putPassword(_cpf,_password).then(function(){
+
+        //$scope.user = Scopes.get('loginCtrl').user.data.value;
+        //$scope.user.password = $scope.novaSenha;
+
+        //console.log($scope.user);
+        userServicePass.putPassword(_id,_password).then(function(){
            alert('MSG004 - SENHA CRIADA COM SUCESSO!');
            window.location.href = "#/page2";
         });
