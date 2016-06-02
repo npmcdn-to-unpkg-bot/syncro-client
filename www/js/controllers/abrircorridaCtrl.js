@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService) {
+  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes) {
 
 
 
@@ -51,11 +51,12 @@
         var deviceStartDate = new Date();
         //console.log(deviceStartDate);
         //console.log("teste - "+$scope.mileage);
+        var user = Scopes.get('loginCtrl').user.data.value;
         var data = {
           deviceStartDate: deviceStartDate,
           mileage: $scope.mileage,
           car: $scope.car.IdVeiculo,
-          user: 1,
+          user: user,
           photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
         }
         console.log(data);
