@@ -71,7 +71,60 @@ angular.module('app')
 })
 
 
+.factory('verificaCorridaService', function($http) {
+ return {
+    getCorrida: function(_token){
 
+       var _url=  SERVICE_URL+"/run?token="+_token;
+       return $http.get(_url).then(function(response){
+          return response;
+       }, function(error){
+
+    });
+  }
+ }
+})
+
+
+.factory('iniciaCorridaService', function($http) {
+ return {
+    postCorrida: function(data){
+
+      var request = {
+        method: "POST",
+        url: "http://localhost:3000/run",
+        data: JSON.stringify(data)
+      };
+
+
+      $http(request).success(function (data) {
+        console.log("Request", data);
+      }).error(function (data) {
+        console.log("Fail", data);
+      })
+  }
+ }
+})
+
+.factory('finalizaCorridaService', function($http) {
+ return {
+    postCorrida: function(data){
+
+      var request = {
+        method: "POST",
+        url: "http://localhost:3000/run",
+        data: JSON.stringify(data)
+      };
+
+
+      $http(request).success(function (data) {
+        console.log("Request", data);
+      }).error(function (data) {
+        console.log("Fail", data);
+      })
+  }
+ }
+})
 
 
 .factory('Scopes', function ($rootScope) {

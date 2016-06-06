@@ -18,6 +18,7 @@
 
               $scope.user = user;
               $scope.nome = user.data.value.name;
+              $scope.token = token;
               $scope.usuario = user.data.value.usuario;
 
               Scopes.store('loginCtrl',$scope);

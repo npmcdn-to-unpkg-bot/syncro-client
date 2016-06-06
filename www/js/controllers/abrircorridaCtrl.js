@@ -2,7 +2,8 @@
   'use strict';
 
   angular.module('app')
-  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes) {
+  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes,iniciaCorridaService) {
+
 
 
 
@@ -11,8 +12,7 @@
       $scope.lista = carros.data;
       console.log($scope.lista);
     }
-  });
-
+});
 
 
 
@@ -49,8 +49,7 @@
 
     $scope.addCorrida = function(){
         var deviceStartDate = new Date();
-        //console.log(deviceStartDate);
-        //console.log("teste - "+$scope.mileage);
+
         var user = Scopes.get('loginCtrl').user.data.value;
         var data = {
           deviceStartDate: deviceStartDate,
@@ -60,9 +59,9 @@
           photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
         }
         console.log(data);
+        iniciaCorridaService.postCorrida(data);
 
-
-        var request = {
+      /*  var request = {
           method: "POST",
           url: "http://localhost:3000/run",
           data: JSON.stringify(data)
@@ -73,7 +72,7 @@
           console.log("Request", data);
         }).error(function (data) {
           console.log("Fail", data);
-        })
+        })*/
 
           window.location.href = "#/page3";
 
