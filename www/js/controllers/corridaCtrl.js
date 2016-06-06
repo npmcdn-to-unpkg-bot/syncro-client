@@ -10,16 +10,32 @@ angular.module('app')
 
    verificaCorridaService.getCorrida(token).then(function(runs){
 
-   console.log("corridas!! - "+runs.data);
    if (runs.data != null) {
+     $scope.corridas = runs.data;
+     //$scope.lista = runs.data;
 
-     $scope.lista = runs.data[0].serverStartDate;
+    var data =  new Date().toJSON().substring(0,10);
 
-     //var deviceStartDate = new Date();
-    // $scope.lista = $scope.corridas.filter(function (item) {
-      //          return item.open === true;
-        //    });
-     $scope.dateStart = runs.data[0].serverStartDate;
+
+
+     $scope.corridaInicio = $scope.corridas.filter(function (item) {
+          var dataDev  = item.deviceStartDate.substring(0,10);
+          if (item.open==true && dataDev==data) {
+              return item;
+         }
+     });
+
+
+
+     $scope.corridaTermino = $scope.corridas.filter(function (item) {
+       var dataDev  = item.deviceStartDate.substring(0,10);
+       if (item.open==false && dataDev==data) {
+           return item;
+       }
+
+    });
+     $scope.dateStart = $scope.corridaInicio[0].serverStartDate;
+     $scope.dateFinish = $scope.corridaTermino[0].serverStartDate;
    }
 
    });

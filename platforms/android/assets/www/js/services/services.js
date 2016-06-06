@@ -1,13 +1,7 @@
 angular.module('app')
 
-
-.factory('BlankFactory', [function(){
-
-}])
-
-
-
 .factory('userServiceToken', function($http) {
+
  return {
     postToken: function(_cpf, _password){
       var parametros = {
@@ -25,10 +19,12 @@ angular.module('app')
   }
 })
 
+
+
 .factory('userServiceLogin', function($http) {
  return {
     getLogin: function(_token){
-       console.log("Token  - "+_token);
+
        var _url=  SERVICE_URL+"/session/user?token="+_token;
        return $http.get(_url).then(function(response){
           return response;
@@ -38,6 +34,27 @@ angular.module('app')
   }
  }
 })
+
+
+.factory('userServicePass', function($http) {
+ return {
+    putPassword: function(_id,_password){
+
+      var parametros = {
+        id:_id,
+        password:_password
+      };
+      var _url=  SERVICE_URL+"/user";
+      return $http.put(_url,parametros).then(function(response){
+              console.log("executou");
+            return response;
+            }, function(error){
+              console.log("erro!");
+            });
+     }
+  }
+})
+
 
 
 .factory('veiculoService', function($http) {
@@ -54,6 +71,61 @@ angular.module('app')
 })
 
 
+.factory('verificaCorridaService', function($http) {
+ return {
+    getCorrida: function(_token){
+
+       var _url=  SERVICE_URL+"/run?token="+_token;
+       return $http.get(_url).then(function(response){
+          return response;
+       }, function(error){
+
+    });
+  }
+ }
+})
+
+
+.factory('iniciaCorridaService', function($http) {
+ return {
+    postCorrida: function(data){
+
+      var request = {
+        method: "POST",
+        url: "http://localhost:3000/run",
+        data: JSON.stringify(data)
+      };
+
+
+      $http(request).success(function (data) {
+        console.log("Request", data);
+      }).error(function (data) {
+        console.log("Fail", data);
+      })
+  }
+ }
+})
+
+.factory('finalizaCorridaService', function($http) {
+ return {
+    postCorrida: function(data){
+
+      var request = {
+        method: "POST",
+        url: "http://localhost:3000/run",
+        data: JSON.stringify(data)
+      };
+
+
+      $http(request).success(function (data) {
+        console.log("Request", data);
+      }).error(function (data) {
+        console.log("Fail", data);
+      })
+  }
+ }
+})
+
 
 .factory('Scopes', function ($rootScope) {
     var mem = {};
@@ -67,6 +139,8 @@ angular.module('app')
        }
     };
 })
+
+
 
 .service('BlankService', [function(){
 

@@ -86,7 +86,7 @@ angular.module('app')
 })
 
 
-.factory('iniciaCorridaService', function($http) {
+.factory('criarCorridaService', function($http) {
  return {
     postCorrida: function(data){
 
@@ -106,25 +106,7 @@ angular.module('app')
  }
 })
 
-.factory('finalizaCorridaService', function($http) {
- return {
-    postCorrida: function(data){
 
-      var request = {
-        method: "POST",
-        url: "http://localhost:3000/run",
-        data: JSON.stringify(data)
-      };
-
-
-      $http(request).success(function (data) {
-        console.log("Request", data);
-      }).error(function (data) {
-        console.log("Fail", data);
-      })
-  }
- }
-})
 
 
 .factory('Scopes', function ($rootScope) {

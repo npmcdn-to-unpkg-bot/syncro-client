@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes,iniciaCorridaService) {
+  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes,criarCorridaService) {
 
 
 
@@ -55,11 +55,12 @@
           deviceStartDate: deviceStartDate,
           mileage: $scope.mileage,
           car: $scope.car.IdVeiculo,
+          open:true,
           user: user,
           photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
         }
         console.log(data);
-        iniciaCorridaService.postCorrida(data);
+        criarCorridaService.postCorrida(data);
 
       /*  var request = {
           method: "POST",
