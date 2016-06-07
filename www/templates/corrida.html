@@ -2,7 +2,7 @@
     <ion-content class="has-header" padding="true">
         <div style="" class="button-bar"></div>
 
-        <a class="button button-balanced  button-block" id="corrida-button7" ui-sref="abrirCorrida">Nova Corrida</a>
+        <a class="button button-balanced  button-block" id="corrida-button7" ui-sref="abrirCorrida" ng-disabled="!abrir">Nova Corrida</a>
           <div>
 
           <div style="" class="list card" ng-controller="corridaCtrl">
@@ -21,9 +21,9 @@
                 <div class="col col-20"><i class="ion-android-done-all balanced"></i></div>
               </div>
           </div>
-          <button class="button button-small button-energized button-block" ui-sref="fecharCorrida" ng-show="true">Fechar</button>
+          <button class="button button-small button-energized button-block" ui-sref="fecharCorrida"  ng-disabled="!fechar">Fechar</button>
         </div>
         </div>
-        {{lista}}
+        {{informacao}}
     </ion-content>
 </ion-view>

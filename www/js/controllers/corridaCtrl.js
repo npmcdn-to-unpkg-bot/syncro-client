@@ -1,9 +1,10 @@
+(function() {
+  'use strict';
+
 angular.module('app')
 .controller('corridaCtrl', function($scope, Scopes,verificaCorridaService) {
 
-
-
-   var token = Scopes.get('loginCtrl').token;
+  var token = Scopes.get('loginCtrl').token;
 
    $scope.instalador = Scopes.get('loginCtrl').nome;
 
@@ -25,19 +26,39 @@ angular.module('app')
          }
      });
 
+     if ($scope.corridaInicio == "") {
+        $scope.abrir=true;
+        $scope.fechar=false;
+     }
+     else{
+         $scope.dateStart = $scope.corridaInicio[0].serverStartDate;
+         $scope.abrir=false;
+         $scope.fechar=true;
 
+         $scope.corridaTermino = $scope.corridas.filter(function (item) {
+            var dataDev  = item.deviceStartDate.substring(0,10);
+            if (item.open==false && dataDev==data) {
+               return item;
+            }
+         });
 
-     $scope.corridaTermino = $scope.corridas.filter(function (item) {
-       var dataDev  = item.deviceStartDate.substring(0,10);
-       if (item.open==false && dataDev==data) {
-           return item;
-       }
+        if ($scope.corridaTermino != "") {
+          $scope.dateFinish = $scope.corridaTermino[0].serverStartDate;
+          $scope.abrir=true;
+          $scope.fechar=false;
+        }
 
-    });
-     $scope.dateStart = $scope.corridaInicio[0].serverStartDate;
-     $scope.dateFinish = $scope.corridaTermino[0].serverStartDate;
+        if ($scope.corridaTermino != "" && $scope.corridaInicio != "") {
+          $scope.dateStart="";
+          $scope.dateFinish="";
+
+          //$scope.informacao ="Rota referente ao dia "+data+"  já concluída!";
+        }
+
+     }
    }
 
-   });
+ });///
 
 })
+}());

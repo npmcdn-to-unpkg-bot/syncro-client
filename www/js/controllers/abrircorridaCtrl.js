@@ -10,7 +10,6 @@
     veiculoService.getVeiculos().then(function(carros){
     if (carros.data != null) {
       $scope.lista = carros.data;
-      console.log($scope.lista);
     }
 });
 
@@ -55,27 +54,16 @@
           deviceStartDate: deviceStartDate,
           mileage: $scope.mileage,
           car: $scope.car.IdVeiculo,
-          open:true,
           user: user,
+          open:true,
           photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
         }
         console.log(data);
         criarCorridaService.postCorrida(data);
 
-      /*  var request = {
-          method: "POST",
-          url: "http://localhost:3000/run",
-          data: JSON.stringify(data)
-        };
+        alert('Quilometragem enviada com Sucesso!');
 
-
-        $http(request).success(function (data) {
-          console.log("Request", data);
-        }).error(function (data) {
-          console.log("Fail", data);
-        })*/
-
-          window.location.href = "#/page3";
+        window.location.href = "#/page2";
 
   };
 

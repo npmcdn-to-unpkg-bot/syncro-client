@@ -8,7 +8,7 @@ angular.module('app')
   veiculoService.getVeiculos().then(function(carros){
     if (carros.data != null) {
       $scope.lista = carros.data;
-      console.log($scope.lista);
+    //  console.log($scope.lista);
     }
   });
 
@@ -51,7 +51,8 @@ angular.module('app')
       }
       console.log(data);
       criarCorridaService.postCorrida(data);
-      window.location.href = "#/page3";
+      alert('JorQuilometragem enviada com Sucesso!');
+      window.location.href = "#/page2";
 
     };
 })
