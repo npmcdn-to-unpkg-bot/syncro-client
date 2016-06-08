@@ -45,12 +45,11 @@
 
 
 
-
     $scope.addCorrida = function(){
         var deviceStartDate = new Date();
 
-        var user = Scopes.get('loginCtrl').user.data.value;
-        var data = {
+        var user = Scopes.get('loginCtrl').user;
+        var run = {
           deviceStartDate: deviceStartDate,
           mileage: $scope.mileage,
           car: $scope.car.IdVeiculo,
@@ -58,16 +57,15 @@
           open:true,
           photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
         }
-        console.log(data);
-        criarCorridaService.postCorrida(data);
 
-        alert('Quilometragem enviada com Sucesso!');
-
-        window.location.href = "#/page2";
+        criarCorridaService.postCorrida(run).success(function(data){
+           window.location.href = "#/page2";
+        }).error(function(data,status){
+           $scope.message = "Falha ao Registrar Corrida"+data;
+        });
 
   };
 
 
-  })
-
+})
 }());

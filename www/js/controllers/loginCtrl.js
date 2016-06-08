@@ -5,28 +5,27 @@
 
   .controller('loginCtrl',function($scope,userServiceToken,userServiceLogin,Scopes) {
       $scope.validarUsuario = function(){
-        var _cpf = $scope.usuario;
-        var _password = $scope.senha;
 
+        var parametros = {
+          cpf:$scope.usuario,
+          password: $scope.senha
+        };
 
+      userServiceToken.postToken(parametros).success(function(chave){
+          var token =chave.token;
 
+          userServiceLogin.getLogin(token).success(function(user){
 
-        userServiceToken.postToken(_cpf,_password).then(function(chave){
-          var token =chave.data.token;
-
-          userServiceLogin.getLogin(token).then(function(user){
-
-              $scope.user = user;
-              $scope.nome = user.data.value.name;
+              $scope.user = user.value;
+              $scope.nome = user.value.name;
               $scope.token = token;
-              $scope.usuario = user.data.value.usuario;
+              $scope.usuario = user.value.usuario;
 
               Scopes.store('loginCtrl',$scope);
 
 
-
-              if (user.data.value != null) {
-                if (user.data.value.password == "" || user.data.value.password == null) {
+              if (user.value != null) {
+                if (user.value.password == "" || user.value.password == null) {
                   alert("MSG003 - ESTE USUÁRIO NÃO TEM SENHA DEFINIDA!");
                     window.location.href = "#/page7";
                 }else{
@@ -35,8 +34,13 @@
               }else{
                 alert("MSG002 - LOGIN INEXISTENTE!");
               }
-          })
-        })
+          }).error(function(user,status){
+             $scope.message = "Falha na validação do Login"+user;
+          });
+
+        }).error(function(chave,status){
+           $scope.message = "Falha na validação do Login"+user;
+        });
       }
   })
 }());
