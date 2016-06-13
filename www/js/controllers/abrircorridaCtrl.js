@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes,criarCorridaService) {
+  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService, Scopes, criarCorridaService) {
 
 
 
@@ -59,7 +59,8 @@
         }
 
         criarCorridaService.postCorrida(run).success(function(data){
-           window.location.href = "#/page2";
+           window.location.href = "#/page3";
+           console.log("Abriu a corrida, corrida cadastrada no banco!");
         }).error(function(data,status){
            $scope.message = "Falha ao Registrar Corrida"+data;
         });

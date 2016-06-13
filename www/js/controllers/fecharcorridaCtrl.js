@@ -3,7 +3,7 @@
 
 
 angular.module('app')
-.controller('fecharCorridaCtrl', function($scope, $cordovaCamera, $interval, dateFilter,Scopes, veiculoService,criarCorridaService) {
+.controller('fecharCorridaCtrl', function($scope, $cordovaCamera, $interval, dateFilter, Scopes, veiculoService, criarCorridaService) {
 
   veiculoService.getVeiculos().then(function(carros){
     if (carros.data != null) {
@@ -40,22 +40,23 @@ angular.module('app')
   $scope.finalizaCorrida = function(){
       var deviceStartDate = new Date();
 
-      var user = Scopes.get('loginCtrl').user.data.value;
+      var user = Scopes.get('loginCtrl').user;
       var run = {
         deviceStartDate: deviceStartDate,
         mileage: $scope.mileage,
         car: $scope.car.IdVeiculo,
         user: user,
-        open: false,
+        open:false,
         photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
       }
 
       criarCorridaService.postCorrida(run).success(function(data){
-         window.location.href = "#/page2";
+         window.location.href = "#/page3";
+         console.log("Fechou a corrida, finalização da corrida cadastrada no banco!");
       }).error(function(data,status){
          $scope.message = "Falha ao Registrar Corrida"+data;
       });
 
-    };
+};
 })
 }());
