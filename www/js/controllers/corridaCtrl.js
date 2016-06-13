@@ -8,17 +8,18 @@ angular.module('app')
 
    $scope.instalador = Scopes.get('loginCtrl').nome;
 
+   $scope.abre = false;
+
    $scope.abrirCorrida = function(){
-     
 
      window.location.href="#/page4";
-     console.log("ENTROU");
+     $scope.abre = function(){
+      $scope.abre = true;
+     }
    };
    $scope.fecharCorrida = function(){
-
-
+     $scope.abre = false;
      window.location.href="#/page5";
-     console.log("ENTROU");
    };
 
 })

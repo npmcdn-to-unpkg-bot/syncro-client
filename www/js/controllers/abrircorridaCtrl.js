@@ -41,10 +41,6 @@
 
   };
 
-  //Codigo acima recupera imagem do sistema e o km informado
-
-
-
     $scope.addCorrida = function(){
         var deviceStartDate = new Date();
 
@@ -60,7 +56,6 @@
 
         criarCorridaService.postCorrida(run).success(function(data){
            window.location.href = "#/page3";
-           console.log("Abriu a corrida, corrida cadastrada no banco!");
         }).error(function(data,status){
            $scope.message = "Falha ao Registrar Corrida"+data;
         });

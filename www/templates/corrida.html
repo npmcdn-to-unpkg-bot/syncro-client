@@ -4,30 +4,14 @@
         <div class="item item-divider">Usuario: <b>{{instalador}}</b></div>
 
         <form name="form">
-          <a ng-click="abrirCorrida()"><button class="button button-balanced  button-block" ng-disabled="abre" ng-click="abre=!abre">Nova Corrida</button></a>
-          <a ng-click="fecharCorrida()"><button class="button button-assertive button-block" ng-disabled="!abre" ng-click="abre=!abre" >Fechar Corrida</button></a>
+          <button class="button button-balanced  button-block"ng-click="abrirCorrida(); abrir=!abrir" ng-disabled="abrir" name="abrir" >Nova Corrida</button>
+
+          <div ng-show="abre" class="alert alert-success" ng-controller="abrirCorridaCtrl">Corrida iniciada</div>
+
+          <button class="button button-assertive button-block" ng-disabled="!abrir" ng-click="fecharCorrida(); abrir=!abrir" name="fechar">Fechar Corrida</button>
+
         </form>
 
-      <!--    <div>
-      <div style="" class="button-bar"></div>
-
-          <div style="" class="list card" ng-controller="corridaCtrl">
-            <div class="item item-body">
-
-              <div class="row" ng-show="true">
-                <div class="col col-20"><strong>Início</strong></div>
-                <div class="col col-50">{{dateStart | date:'dd/MM/yyyy HH:mm'}}</div>
-                <div class="col col-20"><i class="ion-android-done energized"></i></div>
-              </div>
-              <hr>
-              <div class="row" ng-show="true">
-                <div class="col col-20"><strong>Fim</strong></div>
-                  <div class="col col-50">{{dateFinish | date:'dd/MM/yyyy HH:mm'}}</div>
-                <div class="col col-20"><i class="ion-android-done-all balanced"></i></div>
-              </div>
-          </div>
-        </div>
-      </div>-->
 
     </ion-content>
 </ion-view>

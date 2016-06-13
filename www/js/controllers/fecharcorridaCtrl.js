@@ -8,7 +8,7 @@ angular.module('app')
   veiculoService.getVeiculos().then(function(carros){
     if (carros.data != null) {
       $scope.lista = carros.data;
-    //  console.log($scope.lista);
+
     }
   });
 
@@ -52,7 +52,6 @@ angular.module('app')
 
       criarCorridaService.postCorrida(run).success(function(data){
          window.location.href = "#/page3";
-         console.log("Fechou a corrida, finalização da corrida cadastrada no banco!");
       }).error(function(data,status){
          $scope.message = "Falha ao Registrar Corrida"+data;
       });
