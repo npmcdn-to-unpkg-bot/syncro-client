@@ -77,7 +77,7 @@ angular.module('app')
 
 .factory('criarCorridaService', function($http) {
       var _postCorrida = function(run){
-          return  $http.post("http://localhost:3000/run", run);
+          return  $http.post(SERVICE_URL+"/run", run);
       };
       return{
         postCorrida: _postCorrida
