@@ -1,1 +1,1 @@
-const SERVICE_URL = 'http://localhost:104.236.110.237';
+const SERVICE_URL = 'http://104.236.110.237:3000';

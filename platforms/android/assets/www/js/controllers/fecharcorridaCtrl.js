@@ -3,12 +3,12 @@
 
 
 angular.module('app')
-.controller('fecharCorridaCtrl', function($scope, $cordovaCamera, $interval, dateFilter,Scopes, veiculoService,finalizaCorridaService) {
+.controller('fecharCorridaCtrl', function($scope, $cordovaCamera, $interval, dateFilter, Scopes, veiculoService, criarCorridaService) {
 
   veiculoService.getVeiculos().then(function(carros){
     if (carros.data != null) {
       $scope.lista = carros.data;
-      console.log($scope.lista);
+
     }
   });
 
@@ -40,33 +40,22 @@ angular.module('app')
   $scope.finalizaCorrida = function(){
       var deviceStartDate = new Date();
 
-      var user = Scopes.get('loginCtrl').user.data.value;
-      var data = {
+      var user = Scopes.get('loginCtrl').user;
+      var run = {
         deviceStartDate: deviceStartDate,
         mileage: $scope.mileage,
         car: $scope.car.IdVeiculo,
         user: user,
-        open: false,
-        photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
+        open:false,
+        photo:  $scope.imageCamera,
       }
-      console.log(data);
-      finalizaCorridaService.finalizaCorridaService(data);
 
-      /*var request = {
-        method: "POST",
-        url: "http://localhost:3000/run/delete",
-        data: JSON.stringify(data)
-      };
+      criarCorridaService.postCorrida(run).success(function(data){
+        $location.path('/page3');
+      }).error(function(data,status){
+         $scope.message = "Falha ao Registrar Corrida"+data;
+      });
 
-
-      $http(request).success(function (data) {
-        console.log("Request", data);
-      }).error(function (data) {
-        console.log("Fail", data);
-      })*/
-
-        window.location.href = "#/page3";
-
-    };
+};
 })
 }());

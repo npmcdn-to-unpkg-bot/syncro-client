@@ -3,7 +3,7 @@
 
   angular.module('app')
 
-  .controller('loginCtrl',function($scope,userServiceToken,userServiceLogin,Scopes) {
+  .controller('loginCtrl',function($scope,userServiceToken,userServiceLogin,Scopes,$location) {
       $scope.validarUsuario = function(){
 
         var parametros = {
@@ -23,13 +23,16 @@
 
               Scopes.store('loginCtrl',$scope);
 
+               console.log($scope);
 
               if (user.value != null) {
                 if (user.value.password == "" || user.value.password == null) {
                   alert("MSG003 - ESTE USUÁRIO NÃO TEM SENHA DEFINIDA!");
-                    window.location.href = "#/page7";
+                    $location.path('/page7');
+
                 }else{
-                    window.location.href = "#/page3";
+                    //window.location.href = "#/page3";
+                    $location.path('~/page3');
                   }
               }else{
                 alert("MSG002 - LOGIN INEXISTENTE!");

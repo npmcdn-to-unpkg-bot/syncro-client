@@ -2,37 +2,25 @@ angular.module('app')
 
 .factory('userServiceToken', function($http) {
 
- return {
-    postToken: function(_cpf, _password){
-      var parametros = {
-        cpf:_cpf,
-        password: _password
-      };
+  var _postToken = function(parametros){
+      return $http.post(SERVICE_URL+"/session",parametros);
+  };
 
-      var _url=  SERVICE_URL+"/session";
-
-       return $http.post(_url,parametros).then(function(response){
-             return response;
-          }, function(error){
-        });
-     }
+  return{
+      postToken: _postToken
   }
 })
 
 
 
 .factory('userServiceLogin', function($http) {
- return {
-    getLogin: function(_token){
+  var _getLogin = function(token){
+      return $http.get(SERVICE_URL+"/session/user?token="+token);
+  };
 
-       var _url=  SERVICE_URL+"/session/user?token="+_token;
-       return $http.get(_url).then(function(response){
-          return response;
-       }, function(error){
-
-    });
+  return{
+    getLogin: _getLogin
   }
- }
 })
 
 
@@ -65,7 +53,7 @@ angular.module('app')
             return response;
         }, function(error){
 
-                });
+            });
         }
  }
 })
@@ -86,45 +74,17 @@ angular.module('app')
 })
 
 
-.factory('iniciaCorridaService', function($http) {
- return {
-    postCorrida: function(data){
 
-      var request = {
-        method: "POST",
-        url: "http://localhost:3000/run",
-        data: JSON.stringify(data)
+.factory('criarCorridaService', function($http) {
+      var _postCorrida = function(run){
+          return  $http.post(SERVICE_URL+"/run", run);
       };
-
-
-      $http(request).success(function (data) {
-        console.log("Request", data);
-      }).error(function (data) {
-        console.log("Fail", data);
-      })
-  }
- }
+      return{
+        postCorrida: _postCorrida
+      }
 })
 
-.factory('finalizaCorridaService', function($http) {
- return {
-    postCorrida: function(data){
 
-      var request = {
-        method: "POST",
-        url: "http://localhost:3000/run",
-        data: JSON.stringify(data)
-      };
-
-
-      $http(request).success(function (data) {
-        console.log("Request", data);
-      }).error(function (data) {
-        console.log("Fail", data);
-      })
-  }
- }
-})
 
 
 .factory('Scopes', function ($rootScope) {

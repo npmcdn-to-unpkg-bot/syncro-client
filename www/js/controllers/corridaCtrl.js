@@ -2,7 +2,7 @@
   'use strict';
 
 angular.module('app')
-.controller('corridaCtrl', function($scope, Scopes,verificaCorridaService) {
+.controller('corridaCtrl', function($scope, Scopes,verificaCorridaService,$location) {
 
   var token = Scopes.get('loginCtrl').token;
 
@@ -12,14 +12,14 @@ angular.module('app')
 
    $scope.abrirCorrida = function(){
 
-     window.location.href="#/page4";
+     $location.path('/page4');
      $scope.abre = function(){
       $scope.abre = true;
      }
    };
    $scope.fecharCorrida = function(){
      $scope.abre = false;
-     window.location.href="#/page5";
+     $location.path('/page5');
    };
 
 })

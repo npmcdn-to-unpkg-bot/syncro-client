@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app')
-  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService,Scopes,iniciaCorridaService) {
+  .controller('abrirCorridaCtrl', function($scope, $http, $cordovaCamera, $interval, dateFilter, veiculoService, Scopes, criarCorridaService) {
 
 
 
@@ -10,7 +10,6 @@
     veiculoService.getVeiculos().then(function(carros){
     if (carros.data != null) {
       $scope.lista = carros.data;
-      console.log($scope.lista);
     }
 });
 
@@ -42,43 +41,27 @@
 
   };
 
-  //Codigo acima recupera imagem do sistema e o km informado
-
-
-
-
     $scope.addCorrida = function(){
         var deviceStartDate = new Date();
 
-        var user = Scopes.get('loginCtrl').user.data.value;
-        var data = {
+        var user = Scopes.get('loginCtrl').user;
+        var run = {
           deviceStartDate: deviceStartDate,
           mileage: $scope.mileage,
           car: $scope.car.IdVeiculo,
           user: user,
-          photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
+          open:true,
+          photo: $scope.imageCamera,
         }
-        console.log(data);
-        iniciaCorridaService.postCorrida(data);
 
-      /*  var request = {
-          method: "POST",
-          url: "http://localhost:3000/run",
-          data: JSON.stringify(data)
-        };
-
-
-        $http(request).success(function (data) {
-          console.log("Request", data);
-        }).error(function (data) {
-          console.log("Fail", data);
-        })*/
-
-          window.location.href = "#/page3";
+        criarCorridaService.postCorrida(run).success(function(data){
+          $location.path('/page3');
+        }).error(function(data,status){
+           $scope.message = "Falha ao Registrar Corrida"+data;
+        });
 
   };
 
 
-  })
-
+})
 }());

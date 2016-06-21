@@ -51,11 +51,11 @@
           car: $scope.car.IdVeiculo,
           user: user,
           open:true,
-          photo:  'pauiggefbwa987geyh9´4qp8´q4hj4=dx0af4ut-9hgbnv'//$scope.imageCamera,
+          photo: $scope.imageCamera,
         }
 
         criarCorridaService.postCorrida(run).success(function(data){
-           window.location.href = "#/page3";
+          $location.path('/page3');
         }).error(function(data,status){
            $scope.message = "Falha ao Registrar Corrida"+data;
         });

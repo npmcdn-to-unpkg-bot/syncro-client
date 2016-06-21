@@ -1,19 +1,15 @@
 angular.module('app')
-.controller('criarSenhaCtrl', function($scope, userServicePass,userServiceLogin,Scopes){
+.controller('criarSenhaCtrl', function($scope, userServicePass,userServiceLogin,Scopes,$location){
       $scope.criar = function(){
-
-        console.log("Clicado!");
+       var xxx = Scopes.get('loginCtrl').user;
+        console.log("Clicado! - "+xxx);
 
         var _id = Scopes.get('loginCtrl').user.data.value._id;
         var _password = $scope.novaSenha;
 
-        //$scope.user = Scopes.get('loginCtrl').user.data.value;
-        //$scope.user.password = $scope.novaSenha;
-
-        //console.log($scope.user);
         userServicePass.putPassword(_id,_password).then(function(){
            alert('MSG004 - SENHA CRIADA COM SUCESSO!');
-           window.location.href = "#/page2";
+          $location.path('/page2');
         });
 
       };

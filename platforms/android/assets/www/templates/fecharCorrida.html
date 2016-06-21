@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <ion-view style="" id="page5" title="Fechar Corrida">
     <ion-content class="has-header" padding="true" ng-controller="fecharCorridaCtrl">
         <div style="margin: 0px; line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
@@ -15,15 +8,15 @@
         <button ng-click="fechaCorrida()" class="button button-positive  button-block" id="fecharCorrida-button6">Tirar Foto</button>
         <form style="" class="list">
             <label style="" class="item item-input">
-                <input ng-model="km" placeholder="Informar KM" type="text" />
+                <input ng-model="mileage" placeholder="Informar KM" type="text" />
             </label>
             <div style="width: 283px; height: 5px;" class="spacer"></div>
 
-                <span class="input-label">Placa - Modelo</span>
+                <span class="input-label">Placa-Modelo</span>
                 <label style="" class="item">
                     <select class="item item-select" ng-model="car" ng-options="veiculo.Placa+' - '+veiculo.Modelo for veiculo in lista track by veiculo.IdVeiculo"></select>
                 </label>
         </form>
-        <button ng-click="finalizaCorrida()" class="button button-assertive  button-block" id="fecharCorrida-button5" ui-sref="corrida">Fechar</button>
+        <button ng-click="finalizaCorrida()" class="button button-assertive  button-block" id="fecharCorrida-button5">Fechar</button>
     </ion-content>
 </ion-view>
